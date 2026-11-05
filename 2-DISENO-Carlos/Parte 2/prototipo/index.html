@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RegistraUX – Prototipos</title>
+<style>
+  @font-face { font-family: "Atkinson Hyperlegible"; font-weight: 400; src: url("v1/fuentes/atkinson-hyperlegible-latin-400-normal.woff2") format("woff2"); }
+  @font-face { font-family: "Atkinson Hyperlegible"; font-weight: 700; src: url("v1/fuentes/atkinson-hyperlegible-latin-700-normal.woff2") format("woff2"); }
+  body { margin: 0; font: 1rem/1.55 "Atkinson Hyperlegible", system-ui, sans-serif; background: #F3F5F8; color: #1C2740; }
+  main { max-width: 44rem; padding: 3rem 1rem; margin: 0 auto; }
+  h1 { font-size: 1.9rem; margin: 0 0 .25rem; }
+  p { color: #4A5468; }
+  ul { list-style: none; padding: 0; display: grid; gap: 1rem; }
+  a.op { display: block; background: #fff; border: 1px solid #D5DAE3; border-left: 6px solid #0B5E63; border-radius: 6px; padding: 1.1rem 1.25rem; color: inherit; text-decoration: none; }
+  a.op:hover { border-color: #0B5E63; }
+  a.op:focus-visible { outline: 3px solid #5B21B6; outline-offset: 2px; }
+  a.op b { font-size: 1.2rem; color: #0B5E63; }
+  .extra { font-size: .95rem; }
+  .extra a { color: #0B5E63; }
+</style>
+</head>
+<body>
+<main>
+  <h1>RegistraUX</h1>
+  <p>Prototipos navegables para registrar evaluaciones UX · APE 4 · Interacción Humano–Computador · FISEI-UTA</p>
+  <ul>
+    <li><a class="op" href="v1/index.html#/inicio"><b>Versión 1</b><br>Primera versión, usada en las pruebas con P01 y P02.</a></li>
+    <li><a class="op" href="v2/index.html#/inicio"><b>Versión 2</b><br>Corregida con tres cambios basados en los hallazgos (C1, C2, C3).</a></li>
+  </ul>
+  <p class="extra">Ruta de error: <a href="v2/index.html?fallo=una#/inicio">v2 con fallo de red en el primer envío</a> ·
+  <a href="v2/index.html?fallo=sesion#/inicio">v2 con sesión expirada</a> ·
+  <a href="v1/index.html#/observador">panel del observador</a></p>
+</main>
+</body>
+</html>
