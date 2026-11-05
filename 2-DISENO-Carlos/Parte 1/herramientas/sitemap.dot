@@ -1,0 +1,37 @@
+// Sitemap de RegistraUX v1/v2. Árbol de pantallas: sin flechas (el orden de uso está en user-flow.dot)
+graph sitemap {
+  graph [rankdir=TB, fontname="DejaVu Sans", fontsize=20, labelloc=t, label="Sitemap · RegistraUX (registro de evaluaciones UX)\n ", nodesep=0.35, ranksep=0.6, pad=0.3, dpi=160, bgcolor="white"];
+  node  [shape=box, style="rounded,filled", fillcolor="#FFFFFF", color="#1C2740", fontname="DejaVu Sans", fontsize=12, penwidth=1.6, margin="0.18,0.08"];
+  edge  [color="#4A5468", penwidth=1.3];
+
+  inicio [label="S1 Inicio\n(panel, borrador pendiente,\nregistros recientes)", fillcolor="#0B5E63", fontcolor="white", color="#0B5E63"];
+
+  reg  [label="Registrar evaluación\n(asistente de 3 pasos)", fillcolor="#E3F1F1"];
+  mis  [label="S8 Mis evaluaciones", fillcolor="#E3F1F1"];
+  ayu  [label="S9 Ayuda\n(severidad, heurísticas, teclado)", fillcolor="#E3F1F1"];
+
+  p1 [label="S2 Paso 1\nDatos generales"];
+  p2 [label="S3 Paso 2\nHallazgos"];
+  p3 [label="S4 Paso 3\nRevisión y envío"];
+  dlg [label="Diálogo: eliminar /\nhallazgo sin agregar (v2)", style="rounded,dashed", fillcolor="white"];
+  car [label="S5 Enviando\n(estado de carga)", style="rounded,dashed"];
+  err [label="S6 Error de envío\n(red / sesión)", style="rounded,dashed", color="#B42318", fontcolor="#B42318"];
+  exi [label="S7 Confirmación\n(código de registro)", style="rounded,dashed", color="#1B6B3A", fontcolor="#1B6B3A"];
+  det [label="Detalle de registro\nEV-2026-XXXX"];
+  obs [label="Panel del observador\n(solo pruebas, no enlazado)", style="rounded,dotted", fontcolor="#5B21B6", color="#5B21B6"];
+
+  inicio -- reg; inicio -- mis; inicio -- ayu;
+  reg -- p1; reg -- p2; reg -- p3;
+  p2 -- dlg; p3 -- car; p3 -- err; p3 -- exi;
+  mis -- det;
+  inicio -- obs [style=dotted, color="#5B21B6"];
+
+  subgraph cluster_ley {
+    label="Leyenda"; fontsize=12; style="rounded"; color="#D5DAE3";
+    l1 [label="Pantalla", fontsize=10];
+    l2 [label="Estado de una pantalla", style="rounded,dashed", fontsize=10];
+    l3 [label="Sección de la navegación global", fillcolor="#E3F1F1", fontsize=10];
+    l1 -- l2 -- l3 [style=invis];
+  }
+  {rank=same; mis; ayu; reg;}
+}

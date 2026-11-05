@@ -1,0 +1,46 @@
+// User flow de la tarea crítica: registrar una evaluación UX (ruta de éxito y ramas de error con recuperación)
+digraph flujo {
+  graph [rankdir=TB, fontname="DejaVu Sans", fontsize=20, labelloc=t, label="User flow · Registrar una evaluación UX (v2)\n ", nodesep=0.45, ranksep=0.42, pad=0.3, dpi=150, bgcolor="white"];
+  node  [fontname="DejaVu Sans", fontsize=11.5, penwidth=1.5, color="#1C2740", style=filled, fillcolor="white"];
+  edge  [fontname="DejaVu Sans", fontsize=10.5, color="#1C2740", penwidth=1.4];
+
+  ini  [label="Valeria termina la\nsesión de evaluación", shape=oval, fillcolor="#1C2740", fontcolor="white"];
+  s1   [label="Inicio", shape=box, style="rounded,filled"];
+  dB   [label="¿Hay borrador?", shape=diamond, fillcolor="#FFF6DB"];
+  cont [label="Continuar borrador", shape=box, style="rounded,filled"];
+  p1   [label="Paso 1: datos generales", shape=box, style="rounded,filled"];
+  d1   [label="¿Datos válidos?", shape=diamond, fillcolor="#FFF6DB"];
+  e1   [label="Resumen + mensaje junto al campo\nfoco al primer error · datos conservados", shape=box, style="rounded,filled", fillcolor="#FDF1F0", color="#B42318"];
+  p2   [label="Paso 2: agregar hallazgo", shape=box, style="rounded,filled"];
+  d2   [label="¿Hallazgo válido?", shape=diamond, fillcolor="#FFF6DB"];
+  e2   [label="Error contextual en\nheurística / severidad / descripción", shape=box, style="rounded,filled", fillcolor="#FDF1F0", color="#B42318"];
+  d3   [label="¿Agregar otro?", shape=diamond, fillcolor="#FFF6DB"];
+  d4   [label="¿Formulario con datos\nsin agregar? (v2-C1)", shape=diamond, fillcolor="#FFF6DB"];
+  dlg  [label="Diálogo: Agregar y continuar /\nSeguir editando / Descartar", shape=box, style="rounded,filled", fillcolor="#EEE9F8", color="#5B21B6"];
+  p3   [label="Paso 3: revisar", shape=box, style="rounded,filled"];
+  d5   [label="¿Todo correcto?", shape=diamond, fillcolor="#FFF6DB"];
+  env  [label="Enviando… (carga)", shape=box, style="rounded,filled,dashed"];
+  d6   [label="¿Envío exitoso?", shape=diamond, fillcolor="#FFF6DB"];
+  e3   [label="Error de envío (red / sesión)\n“Tu evaluación está a salvo”", shape=box, style="rounded,filled", fillcolor="#FDF1F0", color="#B42318"];
+  d7   [label="¿Reintentar ahora?", shape=diamond, fillcolor="#FFF6DB"];
+  sal  [label="Sale; el borrador queda\nguardado en el inicio", shape=box, style="rounded,filled", fillcolor="#FDF1F0", color="#B42318"];
+  ok   [label="Confirmación con código\nEV-2026-XXXX", shape=box, style="rounded,filled", fillcolor="#ECF7EF", color="#1B6B3A"];
+  fin  [label="Evaluación registrada", shape=oval, fillcolor="#1B6B3A", fontcolor="white", color="#1B6B3A"];
+
+  ini -> s1 -> dB;
+  dB -> cont [label=" Sí"]; dB -> p1 [label=" No"];
+  cont -> p1;
+  p1 -> d1; d1 -> e1 [label=" No", color="#B42318", fontcolor="#B42318"]; e1 -> p1 [label=" corrige", color="#B42318", fontcolor="#B42318", style=dashed];
+  d1 -> p2 [label=" Sí", color="#1B6B3A", fontcolor="#1B6B3A", penwidth=2.2];
+  p2 -> d2; d2 -> e2 [label=" No", color="#B42318", fontcolor="#B42318"]; e2 -> p2 [label=" corrige", color="#B42318", fontcolor="#B42318", style=dashed];
+  d2 -> d3 [label=" Sí", color="#1B6B3A", fontcolor="#1B6B3A", penwidth=2.2];
+  d3 -> p2 [label=" Sí"]; d3 -> d4 [label=" No: Siguiente"];
+  d4 -> dlg [label=" Sí"]; dlg -> p2 [label=" seguir editando", style=dashed];
+  dlg -> p3 [label=" agregar / descartar"];
+  d4 -> p3 [label=" No", color="#1B6B3A", fontcolor="#1B6B3A", penwidth=2.2];
+  p3 -> d5; d5 -> p2 [label=" No: editar", style=dashed]; d5 -> env [label=" Sí: Enviar", color="#1B6B3A", fontcolor="#1B6B3A", penwidth=2.2];
+  env -> d6; d6 -> ok [label=" Sí", color="#1B6B3A", fontcolor="#1B6B3A", penwidth=2.2]; d6 -> e3 [label=" No", color="#B42318", fontcolor="#B42318"];
+  e3 -> d7; d7 -> env [label=" Sí: Reintentar", color="#B42318", fontcolor="#B42318", style=dashed]; d7 -> sal [label=" No"];
+  sal -> s1 [style=dotted, label=" más tarde"];
+  ok -> fin;
+}
