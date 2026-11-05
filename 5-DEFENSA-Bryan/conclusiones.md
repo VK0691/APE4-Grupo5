@@ -15,19 +15,21 @@
 
 ## Conclusiones individuales
 
-Cada integrante escribe 3–5 líneas sobre **su** aporte, qué aprendió y qué evidencia lo respalda (enlace a su commit o PR).
+### Thomas Solis · Fase 1: Diagnóstico
+Reconstruí la interfaz actual de registro de evaluaciones, identifiqué y prioricé los cinco problemas (P1–P5) con heurísticas de Nielsen y su severidad, y elaboré la curva emocional con ocho touchpoints y dos momentos de verdad. Aprendí que el momento de verdad que más pesa no siempre es el más visible: perder todo el formulario cuando falla el envío (MV1) destruye la confianza más que cualquier problema estético, y eso marcó la prioridad del rediseño. También aprendí a distinguir una curva estimada por el equipo de una medida con usuarios.
+Evidencia: Issues #1–#5 · PR #__ · commits `_______`.
 
-### Integrante 1 · Diagnóstico y coordinación
-*(completar)*
+### Carlos Bejarano · Fases 2 y 3: Diseño y Prueba
+En el diseño redacté los requisitos R1–R6 con criterios medibles, el sitemap, el user flow con ramas de error y recuperación, el inventario de componentes, los wireframes, la matriz de trazabilidad y el prototipo navegable v1. En la prueba preparé el protocolo, dirigí las sesiones con P01 y P02, registré tiempos, errores y comentarios, y verifiqué el contraste y el uso con teclado. Aprendí que cada artefacto responde una pregunta distinta (qué pantallas hay, en qué orden se recorren, qué contiene cada una y cómo se siente usarla) y que una prueba solo sirve si separa lo observado de lo supuesto.
+Evidencia: Issues #6–#11 · PR #__ (diseño) · PR #__ (prueba) · commits `_______`.
 
-### Integrante 2 · Arquitectura y C1
-*(completar)*
+### Karen Molina · Fase 4: Iteración
+Prioricé los hallazgos de la prueba y construí la versión 2 con tres correcciones: C1, el aviso de hallazgo sin agregar (H5); C2, la escala de severidad con nombres y ayuda en el formulario (H6); y C3, el error de envío que confirma que los datos están a salvo (H9, MV1). Elaboré la comparación antes y después y la curva emocional comparada. Aprendí que cada cambio debe nacer de un hallazgo concreto y que la mejora de la v2 es una predicción hasta volver a probarla con usuarios.
+Evidencia: Issues #12–#15 · PR #__ · commits C1 `_______`, C2 `_______`, C3 `_______`.
 
-### Integrante 3 · Prototipo v1 y C2
-*(completar)*
-
-### Integrante 4 · Pruebas, iteración y C3
-*(completar)*
+### Bryan Guatemal · Fase 5: Defensa
+Implementé la incidencia sorpresa pedida por el docente ([describir el cambio]) en una rama propia y demostré en vivo la ruta exitosa y la ruta de error después del cambio. Además completé el README final con los enlaces a Issues, PR y commits, consolidé las conclusiones y preparé la entrega en Moodle. Aprendí que un prototipo bien organizado, con la configuración y las validaciones en un solo lugar, permite responder a un cambio inesperado en pocos minutos sin romper lo que ya funcionaba.
+Evidencia: Issues #16–#17 · PR #__ (incidencia) · commit `_______`.
 
 ## Recomendaciones
 
