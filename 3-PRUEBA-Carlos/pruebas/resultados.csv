@@ -1,0 +1,8 @@
+participante,version,tarea,fecha,tiempo_s,exito,errores,ayudas,seq_1a7,emocion_observada,comentario_textual,heuristica_observada,evidencia
+P01,v1,T1,,,,,,,,,H6,
+P01,v1,T2,,,,,,,,,H5,
+P01,v1,T3,,,,,,,,,H9 H1,
+P02,v1,T1,,,,,,,,,H6,
+P02,v1,T2,,,,,,,,,H5,
+P02,v1,T3,,,,,,,,,H9 H1,
+P02,v1,A1,,,,,,,,,Teclado y foco,
